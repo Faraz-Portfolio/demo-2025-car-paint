@@ -1,11 +1,11 @@
 {
-  "name": "demo-template",
+  "name": "demo-2025-car-paint",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Faraz-Portfolio/demo-template"
+    "url": "https://github.com/Faraz-Portfolio/demo-2025-car-paint"
   },
   "author": {
     "name": "Faraz Shaikh",
@@ -20,10 +20,18 @@
   "dependencies": {
     "@react-three/drei": "^10.1.2",
     "@react-three/fiber": "^9.1.2",
+    "@react-three/postprocessing": "^3.0.4",
+    "gl-noise": "^1.6.1",
+    "maath": "^0.10.8",
+    "motion": "^12.17.3",
+    "r3f-perf": "^7.2.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-icons": "^5.5.0",
     "three": "^0.177.0",
-    "three-stdlib": "^2.36.0"
+    "three-custom-shader-material": "^6.3.7",
+    "three-stdlib": "^2.36.0",
+    "zustand": "^5.0.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",

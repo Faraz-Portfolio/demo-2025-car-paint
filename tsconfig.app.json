@@ -25,10 +25,7 @@
     "strictNullChecks": true,
     "noUnusedLocals": true,
 
-    "baseUrl": ".",
-    "paths": {
-      "@": ["./src/*"]
-    }
+    "baseUrl": "."
   },
   "include": ["src"]
 }
