@@ -66,32 +66,6 @@ export class CarPaintMaterial extends CSM<typeof THREE.MeshPhysicalMaterial> {
           return result;
         }
 
-
-        vec3 getTriPlanarBlend(vec3 _wNorm){
-          // in wNorm is the world-space normal of the fragment
-          vec3 blending = abs( _wNorm );
-          blending = normalize(max(blending, 0.00001)); // Force weights to sum to 1.0
-          float b = (blending.x + blending.y + blending.z);
-          blending /= vec3(b, b, b);
-          return blending;
-        }
-
-        vec3 triPlanarProjection(vec3 position, vec3 normal, sampler2D inpTex) {
-          // in position is the world-space position of the fragment
-          // in normal is the world-space normal of the fragment
-          vec3 blending = getTriPlanarBlend(normal);
-          vec2 uvX = position.yz * 0.5 + 0.5;
-          vec2 uvY = position.xz * 0.5 + 0.5;
-          vec2 uvZ = position.xy * 0.5 + 0.5;
-
-          vec3 colorX = texture2D(inpTex, uvX).rgb;
-          vec3 colorY = texture2D(inpTex, uvY).rgb;
-          vec3 colorZ = texture2D(inpTex, uvZ).rgb;
-
-          return colorX * blending.x + colorY * blending.y + colorZ * blending.z;
-        }
-
-
         void main() {
           // Distance based LOG to prevent shimmering
           vec3 p = v_WorldPosition;
@@ -104,7 +78,7 @@ export class CarPaintMaterial extends CSM<typeof THREE.MeshPhysicalMaterial> {
           f = smoothstep(-0.2, 0.7, f);
           
           // Flakes
-          float noise = voronoi3DGrayscale(samplePosition * 600.0);
+          float noise = voronoi3DGrayscale(samplePosition * 1000.0);
           noise = smoothstep(0.2, 1.0, noise) * (f) * opacity;
 
           csm_Roughness = mapLinear(noise, 0.0, 1.0, 0.3, 0.2);

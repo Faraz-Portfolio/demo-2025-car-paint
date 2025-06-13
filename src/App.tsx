@@ -42,9 +42,8 @@ export default function App() {
           <meshBasicMaterial color="#262626" />
         </mesh>
 
-        <Camera />
-
         <Suspense>
+          <Camera />
           <Car />
           <ContactShadows opacity={1.2} frames={2} blur={1} />
         </Suspense>
@@ -54,10 +53,10 @@ export default function App() {
             <Clouds material={CloudMaterial}>
               <Cloud
                 position={[0, 0, -5]}
-                opacity={0.07}
                 speed={0.1}
-                segments={10}
+                segments={20}
                 volume={6}
+                bounds={[20, 0.5, 1]}
               />
             </Clouds>
           </>
@@ -89,10 +88,8 @@ export default function App() {
 
         <PP />
 
-        <Perf />
+        {/* <Perf /> */}
       </Canvas>
-
-      <UI />
 
       {/* Grading gradients  */}
       <div

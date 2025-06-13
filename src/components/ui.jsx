@@ -9,6 +9,7 @@ import {
   FaSquareInstagram,
   FaSquareTwitter,
   FaSquareXTwitter,
+  FaShuffle,
 } from "react-icons/fa6";
 import { CAMERAS, COLORS, useApp } from "../state";
 
@@ -31,7 +32,6 @@ export function UI() {
           zIndex: 1000,
           padding: "1rem 2rem",
           boxSizing: "border-box",
-          pointerEvents: "none",
           maxWidth: "700px",
           pointerEvents: "none",
           display: "flex",
@@ -133,7 +133,6 @@ export function UI() {
             style={{
               fontFamily: '"Bricolage Grotesque", sans-serif',
               color: "#fff",
-              margin: 0,
               fontWeight: "800",
               textAlign: "right",
               margin: 0,
@@ -168,8 +167,34 @@ export function UI() {
                   pointerEvents: "all",
                 }}
                 onClick={() => useApp.setState({ colorIndex: i })}
-              ></span>
+              />
             ))}
+
+            <span
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "1.5rem",
+                height: "1.5rem",
+                backgroundColor: "#555",
+                borderRadius: "50%",
+                marginRight: "0.5rem",
+                outline: "2px solid #fff",
+                outlineWidth: colorIndex === -1 ? "5px" : "1px",
+                cursor: "pointer",
+                pointerEvents: "all",
+              }}
+              onClick={() => useApp.setState({ colorIndex: -1 })}
+            >
+              <FaShuffle
+                size="0.8rem"
+                style={{
+                  color: "#fff",
+                  pointerEvents: "none",
+                }}
+              />
+            </span>
           </div>
           <button
             onClick={() =>
@@ -354,7 +379,7 @@ export function UI() {
         </button>
 
         <a
-          href="https://www.artstation.com/farazshaikh"
+          href="https://github.com/Faraz-Portfolio/demo-2025-car-paint"
           target="_blank"
           rel="noopener noreferrer"
           style={{

@@ -7,6 +7,12 @@ import { useLayoutEffect, useMemo } from "react";
 import { CarPaintMaterial } from "./Carpaint";
 import { COLORS, useApp } from "./state";
 
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, "0")}`;
+}
+
 export function Car(props) {
   const { nodes, materials } = useGLTF("/demo-2025-car-paint/car.glb");
 
@@ -19,7 +25,11 @@ export function Car(props) {
 
   const colorIndex = useApp((state) => state.colorIndex);
   const isStockMaterial = useApp((state) => state.isStockMaterial);
-  const color = COLORS[colorIndex];
+  const color = COLORS[colorIndex] || {
+    color: getRandomHexColor(),
+    flake: getRandomHexColor(),
+    perl: getRandomHexColor(),
+  };
 
   return (
     <group

@@ -24,19 +24,18 @@ export function Camera() {
       carRef.current = scene.getObjectByName("car") as Object3D;
     }
 
-    if (controls) {
+    if (controls && carRef.current) {
       controls.reset(true);
 
       switch (currentCamera) {
         case 0: {
-          controls.fitToBox(carRef.current, true);
+          controls.fitToSphere(carRef.current, true);
           controls.rotatePolarTo(Math.PI / 2, true);
-
           break;
         }
 
         case 1: {
-          controls.fitToBox(targetRef.current, true);
+          controls.fitToSphere(targetRef.current, true);
           controls.rotatePolarTo(MathUtils.degToRad(70), true);
           controls.rotateAzimuthTo(MathUtils.degToRad(60), true);
 
@@ -44,7 +43,7 @@ export function Camera() {
         }
 
         case 2: {
-          controls.fitToBox(carRef.current, true);
+          controls.fitToSphere(carRef.current, true);
           controls.rotateAzimuthTo(MathUtils.degToRad(-60), true);
           controls.rotatePolarTo(MathUtils.degToRad(75), true);
           setTimeout(() => {
@@ -55,17 +54,18 @@ export function Camera() {
         }
 
         case 3: {
-          controls.fitToBox(carRef.current, true);
+          controls.fitToSphere(carRef.current, true);
           controls.rotateAzimuthTo(MathUtils.degToRad(-90), true);
           controls.rotatePolarTo(MathUtils.degToRad(30), true);
           setTimeout(() => {
-            controls.dolly(1.5, true);
+            controls.dolly(1, true);
+            controls.truck(0, 0.25, true);
           }, 1000);
           break;
         }
 
         case 4: {
-          controls.fitToBox(carRef.current, true);
+          controls.fitToSphere(carRef.current, true);
           controls.rotateAzimuthTo(MathUtils.degToRad(50), true);
           controls.rotatePolarTo(MathUtils.degToRad(75), true);
           setTimeout(() => {

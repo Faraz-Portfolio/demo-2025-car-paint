@@ -30,7 +30,7 @@ export class CloudMaterial extends THREE.ShaderMaterial {
             float cameraFacingZ = dot(normalize(cameraPosition), vec3(0.0, 0.0, 1.0));
             cameraFacingZ = clamp(cameraFacingZ, 0.0, 1.0); // Ensure value is between 0 and 1
 
-            gl_FragColor.a *= mask * 0.1 * cameraFacingZ; // Apply mask to alpha
+            gl_FragColor.a *= mask * 0.05 * cameraFacingZ; // Apply mask to alpha
         }
       `,
       uniforms: {
