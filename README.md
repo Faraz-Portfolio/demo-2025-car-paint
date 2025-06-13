@@ -2,6 +2,8 @@
 
 View Live: [GitHub Pages](https://faraz-portfolio.github.io/demo-2025-car-paint/)
 
+https://github.com/user-attachments/assets/1d5f9dd3-3dbf-447b-83e7-2f68a5e3d69d
+
 An extension to ThreeJS's MeshPhysicalMaterial that adds flakes, fresnel and "Orange Peel" effects. Scratches were planed but proved too expensive to implement in a performant way. Perhaps in the future with WebGPU.
 
 ## How it works
