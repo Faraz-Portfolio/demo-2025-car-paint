@@ -1,7 +1,6 @@
 import { Billboard, Cloud, Clouds, Image } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
 
-import { Perf } from "r3f-perf";
 import { Suspense, useEffect } from "react";
 import { Car } from "./Car";
 import { Camera } from "./components/Camera";
@@ -9,7 +8,6 @@ import { CloudMaterial } from "./components/CloudMaterial";
 import { ContactShadows } from "./components/ContactShadows";
 import { Lights } from "./components/Lights";
 import { PP } from "./components/PP";
-import { UI } from "./components/ui";
 import { useApp } from "./state";
 
 function AdaptivePixelRatio() {
