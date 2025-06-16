@@ -6,7 +6,7 @@ import {
 
 export function PP() {
   return (
-    <EffectComposer multisampling={0}>
+    <EffectComposer>
       <Bloom intensity={1} mipmapBlur luminanceThreshold={4} />
       <ToneMapping />
     </EffectComposer>
