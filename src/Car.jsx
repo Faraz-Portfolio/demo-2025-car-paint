@@ -24,7 +24,6 @@ export function Car(props) {
   useLayoutEffect(() => () => paintBaseMaterial.dispose(), [paintBaseMaterial]);
 
   const colorIndex = useApp((state) => state.colorIndex);
-  const isStockMaterial = useApp((state) => state.isStockMaterial);
   const color = COLORS[colorIndex] || {
     color: getRandomHexColor(),
     flake: getRandomHexColor(),
@@ -79,24 +78,12 @@ export function Car(props) {
         material={materials["930_plastics"]}
       />
       <mesh castShadow geometry={nodes.Object_113.geometry}>
-        {isStockMaterial ? (
-          <meshPhysicalMaterial
-            roughness={0.2}
-            metalness={1}
-            clearcoat={1}
-            clearcoatRoughness={0}
-            color={color.color}
-            aoMap={paintBaseMaterial.aoMap}
-            normalMap={paintBaseMaterial.normalMap}
-          />
-        ) : (
-          <CarPaintMaterial
-            baseMaterial={paintBaseMaterial}
-            color={color.color}
-            colorFlakes={color.flake}
-            colorPerl={color.perl}
-          />
-        )}
+        <CarPaintMaterial
+          baseMaterial={paintBaseMaterial}
+          color={color.color}
+          colorFlakes={color.flake}
+          colorPerl={color.perl}
+        />
       </mesh>
       <mesh
         castShadow

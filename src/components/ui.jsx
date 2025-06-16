@@ -5,17 +5,16 @@ import {
   FaEye,
   FaEyeSlash,
   FaLinkedin,
+  FaShuffle,
   FaSquareGithub,
   FaSquareInstagram,
   FaSquareTwitter,
   FaSquareXTwitter,
-  FaShuffle,
 } from "react-icons/fa6";
 import { CAMERAS, COLORS, useApp } from "../state";
 
 export function UI() {
   const colorIndex = useApp((state) => state.colorIndex);
-  const isStockMaterial = useApp((state) => state.isStockMaterial);
   const currentCamera = useApp((state) => state.currentCamera);
 
   const [interfaceVisible, setInterfaceVisible] = useState(true);
@@ -196,26 +195,6 @@ export function UI() {
               />
             </span>
           </div>
-          <button
-            onClick={() =>
-              useApp.setState((state) => ({
-                isStockMaterial: !state.isStockMaterial,
-              }))
-            }
-            style={{
-              padding: "0.5rem 1rem",
-              backgroundColor: "#333",
-              color: "#fff",
-              border: "none",
-              borderRadius: "0.25rem",
-              cursor: "pointer",
-              pointerEvents: "all",
-              opacity: interfaceVisible ? 1 : 0,
-              transition: "opacity 0.3s ease-in-out",
-            }}
-          >
-            Use {isStockMaterial ? "custom" : "default"} material
-          </button>
         </div>
 
         <div

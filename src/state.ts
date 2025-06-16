@@ -47,12 +47,10 @@ export const CAMERAS = ["Side", "Closeup", "Front", "Top", "Rear "];
 
 interface AppState {
   colorIndex: number;
-  isStockMaterial: boolean;
   currentCamera: number;
 }
 
 export const useApp = create<AppState>(() => ({
   colorIndex: 0,
-  isStockMaterial: false,
   currentCamera: 0,
 }));
