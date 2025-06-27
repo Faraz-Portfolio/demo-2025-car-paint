@@ -1,13 +1,14 @@
 import { Billboard, Cloud, Clouds, Image } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
 
-import { Suspense, useEffect } from "react";
+import { useEffect } from "react";
 import { Car } from "./Car";
 import { Camera } from "./components/Camera";
 import { CloudMaterial } from "./components/CloudMaterial";
 import { ContactShadows } from "./components/ContactShadows";
 import { Lights } from "./components/Lights";
 import { PP } from "./components/PP";
+import { UI } from "./components/ui";
 import { useApp } from "./state";
 
 function AdaptivePixelRatio() {
@@ -40,11 +41,9 @@ export default function App() {
           <meshBasicMaterial color="#262626" />
         </mesh>
 
-        <Suspense>
-          <Camera />
-          <Car />
-          <ContactShadows opacity={1.2} frames={2} blur={1} />
-        </Suspense>
+        <Camera />
+        <Car />
+        <ContactShadows opacity={1.2} frames={2} blur={1} />
 
         {currentCamera === 0 && (
           <>
@@ -113,6 +112,8 @@ export default function App() {
           background: `linear-gradient(to top, rgba(47, 21, 0, 0.58) 0%, rgba(255, 255, 255, 0) 50%)`,
         }}
       />
+
+      <UI />
     </>
   );
 }
